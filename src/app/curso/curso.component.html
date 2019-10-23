@@ -1,3 +1,31 @@
+<h3>Añadir marca</h3>
+<div>
+  <input type="text" [(ngModel)]="nombreCurso"><span>{{nombreCurso}}</span><br>
+  <button (click)="addNombreCurso()">Agregar</button>
+</div>
+
+<h3>Te capacitamos en:</h3>
 <ul>
-  <li *ngFor="let curso of cursos">{{curso.nombre}} - {{curso.precio}}</li>
+  <li *ngFor="let nombre of nombreCursos; let i=index">
+    {{i+1 +''+nombre}}
+    <button (click)="borrarNombreCurso(i)">Borrar</button>
+  </li>
 </ul>
+<h3>Detalle de cursos</h3>
+<ul>
+  <ng-container *ngFor="let curso of cursos">
+    <li *ngIf="curso.disponible">
+      {{curso.nombre}} - {{curso.precio}}
+      <span *ngIf="curso.precio<=300" [style.color]="curso.precio<=300 ? 'green':''">
+        ¡En promoción!
+      </span>
+    </li>
+  </ng-container>
+</ul>
+
+<h3>Verificar ngSwitch</h3>
+<div [ngSwitch]="color">
+  <p *ngSwitchCase="'red'" [ngStyle]="{'color':color}">Color rojo</p>
+  <p *ngSwitchCase="'blue'" [ngStyle]="{'color':color}">Color azul</p>
+  <p *ngSwitchDefault>Color negro</p>
+</div>

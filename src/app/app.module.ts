@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';//para trabajar con formularios
 
 import { AppComponent } from './app.component';
 import { VideojuegoComponent} from './videojuego/videojuego.component';
@@ -15,7 +16,8 @@ import { CamisaComponent } from './camisa/camisa.component';
     CamisaComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

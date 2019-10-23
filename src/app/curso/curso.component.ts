@@ -7,16 +7,31 @@ import {Curso} from '../models/curso';
 })
 export class CursoComponent implements OnInit {
   public cursos:Array<Curso>;//Creo un array de objetos de tipo curso
-  
+  public nombreCursos:String[];
+  public color:String="blue";
+  public nombreCurso:String;
   constructor() {
+    this.nombreCursos=[];//inicializar array  
     this.cursos=[
-      new Curso("Angular",500,"Framework javascript"),
-      new Curso("Laravel",500,"Framework php")
+      new Curso("Angular",500,"Framework javascript",true),
+      new Curso("Vue",300,"Framework javascript",true),
+      new Curso("Laravel",500,"Framework php",false)
     ];
   }
 
   ngOnInit() {
-    console.log(this.cursos);
+    this.getNombres();
   }
-  
+  getNombres(){
+    this.cursos.forEach((item,index)=>{
+      this.nombreCursos.push(item.nombre);
+    })
+  }
+  addNombreCurso(){
+    this.nombreCursos.push(this.nombreCurso);
+  }
+
+  borrarNombreCurso(index:number){
+    this.nombreCursos.splice(index,1);
+  }
 }
