@@ -2,3 +2,18 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.text-important{
+    font-weight: 800;
+    color: orange;
+}
+.text-small {
+    font-size: 12px;
+}
+.bg-gray {
+    background: #e6e5e5;
+}
+.active{
+    color: white;
+    background: rgb(72, 112, 241);
+}

@@ -1,13 +1,15 @@
 <h3>Añadir marca</h3>
 <div>
-  <input type="text" [(ngModel)]="nombreCurso"><span>{{nombreCurso}}</span><br>
+  <input type="text" [(ngModel)]="nombreCurso" (blur)="onBlur($event.target)" (keyup.enter)="verTexto()">
+  <span>{{nombreCurso}}</span><br>
   <button (click)="addNombreCurso()">Agregar</button>
 </div>
 
 <h3>Te capacitamos en:</h3>
 <ul>
   <li *ngFor="let nombre of nombreCursos; let i=index">
-    {{i+1 +''+nombre}}
+    <span [class.text-important]="(i+1)%2===0" [ngClass]="['text-small',(i+1)%2===0?'bg-gray':'']">
+      {{i+1 +''+nombre}}</span>
     <button (click)="borrarNombreCurso(i)">Borrar</button>
   </li>
 </ul>

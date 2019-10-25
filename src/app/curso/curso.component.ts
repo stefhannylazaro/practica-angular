@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Curso} from '../models/curso';
+import { Router, ActivatedRoute, Params } from '@angular/router';//pasar parámetro
+
+
 @Component({
   selector: 'app-curso',
   templateUrl: './curso.component.html',
@@ -10,7 +13,8 @@ export class CursoComponent implements OnInit {
   public nombreCursos:String[];
   public color:String="blue";
   public nombreCurso:String;
-  constructor() {
+
+  constructor(private _router: Router,private _route: ActivatedRoute) {
     this.nombreCursos=[];//inicializar array  
     this.cursos=[
       new Curso("Angular",500,"Framework javascript",true),
@@ -21,6 +25,9 @@ export class CursoComponent implements OnInit {
 
   ngOnInit() {
     this.getNombres();
+    this._route.params.subscribe(params=>{
+      console.log(params);
+    });
   }
   getNombres(){
     this.cursos.forEach((item,index)=>{
@@ -33,5 +40,11 @@ export class CursoComponent implements OnInit {
 
   borrarNombreCurso(index:number){
     this.nombreCursos.splice(index,1);
+  }
+  onBlur(elem:any){
+    console.log(elem);
+  }
+  verTexto(){
+    alert(this.nombreCurso);
   }
 }
