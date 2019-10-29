@@ -10,6 +10,8 @@ import { CursoComponent } from './curso/curso.component';
 import { CamisaComponent } from './camisa/camisa.component';
 import { HomeComponent } from './home/home.component';
 import { C404Component } from './c404/c404.component';
+import { ContactoComponent } from './contacto/contacto.component';
+import { NotificacionComponent } from './notificacion/notificacion.component';
 @NgModule({//decorador que permite configurar el modulo
   declarations: [
     AppComponent,
@@ -18,7 +20,9 @@ import { C404Component } from './c404/c404.component';
     CursoComponent,
     CamisaComponent,
     HomeComponent,
-    C404Component
+    C404Component,
+    ContactoComponent,
+    NotificacionComponent
   ],
   imports: [
     BrowserModule,

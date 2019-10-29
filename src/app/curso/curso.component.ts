@@ -13,6 +13,8 @@ export class CursoComponent implements OnInit {
   public nombreCursos:String[];
   public color:String="blue";
   public nombreCurso:String;
+  public parameters:object;
+  
 
   constructor(private _router: Router,private _route: ActivatedRoute) {
     this.nombreCursos=[];//inicializar array  
@@ -26,8 +28,13 @@ export class CursoComponent implements OnInit {
   ngOnInit() {
     this.getNombres();
     this._route.params.subscribe(params=>{
-      console.log(params);
+      this.parameters=params;
+      console.log(this.parameters);
     });
+    //this.parameters=this._route.snapshot.params;
+  }
+  goTo(){
+    this._router.navigate(['/home']);
   }
   getNombres(){
     this.cursos.forEach((item,index)=>{

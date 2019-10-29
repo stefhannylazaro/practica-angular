@@ -1,3 +1,8 @@
+<h3>
+  <span *ngIf="parameters.tipo">Tipo:{{parameters.tipo}}</span>
+  <span *ngIf="parameters.code">id:{{parameters.code}}</span>
+</h3>
+<button (click)="goTo()">Ir al home</button>
 <h3>Añadir marca</h3>
 <div>
   <input type="text" [(ngModel)]="nombreCurso" (blur)="onBlur($event.target)" (keyup.enter)="verTexto()">
