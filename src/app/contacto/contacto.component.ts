@@ -23,8 +23,12 @@ export class ContactoComponent implements OnInit {
     this.txtMensaje="Enviado con exito";
     setTimeout(()=>{
       this.showNotify=false;
-    },2000);
+    },5000);
     console.log(this.usuario);
+  }
+
+  getInfo(event){
+    console.log(event);//contiene el valor enviado
   }
 
 }

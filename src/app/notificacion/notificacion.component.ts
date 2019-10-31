@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-notificacion',
@@ -8,10 +8,15 @@ import { Component, OnInit, Input} from '@angular/core';
 export class NotificacionComponent implements OnInit {
   @Input() public msgClass:String;
   @Input() public msg:String;
+  @Output() getLoad=new EventEmitter();//genero un evento
   public tipoClase:String;
-  constructor() { }
+  public loadInfo:String;
+  constructor() {
+    this.loadInfo="No";
+  }
 
   ngOnInit() {
+    this.loadInfo="si";
     console.log("tipo del mensaje");
     console.log(this.msgClass);
     switch(this.msgClass){
@@ -25,6 +30,10 @@ export class NotificacionComponent implements OnInit {
         this.tipoClase="m-notify";
     }
     console.log(this.msg);
+  }
+  lanzar(event){
+    console.log(event);
+    this.getLoad.emit(this.loadInfo);//esto será lo que se recibirá en el comp.padre
   }
 
 }

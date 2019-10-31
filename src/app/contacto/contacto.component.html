@@ -18,4 +18,6 @@
   <button type="submit" [disabled]="formContact.invalid">Enviar</button>
 </form>
 
-<app-notificacion *ngIf="showNotify" [msgClass]="tipoMensaje" [msg]="txtMensaje"></app-notificacion>
+<app-notificacion *ngIf="showNotify" [msgClass]="tipoMensaje" [msg]="txtMensaje"
+ (getLoad)=getInfo($event)
+></app-notificacion>
